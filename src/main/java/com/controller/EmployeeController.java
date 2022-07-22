@@ -61,15 +61,17 @@ public class EmployeeController {
 	EmployeeDao employeeDao;
 	
 	@PostMapping(value = "/insertemployee")
-	public String insertEmployee(@Valid @ModelAttribute("employeeBean") EmployeeBean employeeBean,BindingResult br) {
+	public String insertEmployee(@Valid @ModelAttribute("employeeBean") EmployeeBean employeeBean,BindingResult br,HttpSession session) {
 		if(br.hasErrors()) {
 				return "addEmployee";
 		}
 		System.out.println(employeeBean.getEmployeeName());
 		System.out.println(employeeBean.getEmployeeAge());
 		int res = employeeDao.addEmployee(employeeBean); 
+		
 		if(res>0) {
 			System.out.println("Data Inserted");
+			session.setAttribute("employeeBean", employeeBean);
 
 			return "redirect:viewemployees";
 		}

@@ -14,7 +14,8 @@
 	String firstName = employeeBean.getEmployeeName();
 %>
 <h2>Welcome  <%=firstName %></h2>
-<table>
+
+ <table>
 <tr>
 <th>Id</th>
 <th>Name</th>
