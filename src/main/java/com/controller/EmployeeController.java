@@ -96,7 +96,7 @@ public class EmployeeController {
 //		int eId = Integer.parseInt(id);
 		System.out.println("deleted Employee "+eId);
 		employeeDao.deleteEmployee(eId);
-		return "redirect:/employee/viewemployees";
+		return "redirect:/viewemployees";////return "redirect:/employee/viewemployees
 	}
 	@RequestMapping(value = "/editemployee/{eid}")
 	public String editEmployee(@PathVariable("eid") int eId,Model model) {
@@ -110,7 +110,7 @@ public class EmployeeController {
 	public String updateEmployee(EmployeeBean employeeBean) {
 		System.out.println("Update Method called");
 		employeeDao.updateEmployee(employeeBean);
-		return "redirect:/employee/viewemployees";
+		return "redirect:/viewemployees";//return "redirect:/employee/viewemployees
 		
 	}
 	
